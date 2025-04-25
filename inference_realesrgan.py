@@ -87,7 +87,7 @@ def main():
     # determine model paths
     if args.model_path is not None:
         model_path = args.model_path
-    else:
+    else:`
         model_path = os.path.join('weights', args.model_name + '.pth')
         if not os.path.isfile(model_path):
             ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -134,7 +134,7 @@ def main():
         imgname, extension = os.path.splitext(os.path.basename(path))
         print('Testing', idx, imgname)
 
-        img = cv2.imread(path, cv2.IMREAD_UNCHANGED)
+        img = cv2.imread(path, cv2.IMREAD_COLOR)
         if len(img.shape) == 3 and img.shape[2] == 4:
             img_mode = 'RGBA'
         else:
